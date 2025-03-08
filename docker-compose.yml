@@ -7,7 +7,9 @@ services:
     container_name: mysql_localhost
     environment:
       MYSQL_DATABASE: test_db
-      TZ: "Asia/Tokyo"
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       - ./docker/db/data:/var/lib/mysql
@@ -15,3 +17,5 @@ services:
       - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
+volumes:
+  docker:
